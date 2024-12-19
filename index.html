@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Tender Invitations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Send Tender Invitations</h1>
+    <form action="https://formsubmit.co/yewinhtet@mjtd.com.mm" method="POST">
+    <input type="text" name="project_name" placeholder="Project Name" required>
+    <textarea name="tender_details" placeholder="Tender Details" rows="5" required></textarea>
+    <textarea id="contractorEmails" placeholder="Enter Contractor Emails (comma-separated)" rows="3" required></textarea>
+    
+    <!-- Hidden field to dynamically populate CC -->
+    <input type="hidden" name="_cc" id="ccField">
+    
+    <input type="hidden" name="_subject" value="New Tender Invitation">
+    <input type="hidden" name="_captcha" value="false">
+    <button type="submit">Send Invitations</button>
+</form>
+
+<script>
+    const form = document.querySelector("form");
+    const contractorEmailsField = document.getElementById("contractorEmails");
+    const ccField = document.getElementById("ccField");
+
+    form.addEventListener("submit", (event) => {
+        // Dynamically set CC field with entered emails
+        ccField.value = contractorEmailsField.value;
+    });
+</script>
+</body>
+</html>
